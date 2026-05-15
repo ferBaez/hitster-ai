@@ -402,7 +402,7 @@ export default function App() {
           <div className="space-y-4 md:space-y-6">
             <span className="text-[11px] uppercase tracking-[0.4em] text-[#F27D26] font-bold">Contacto</span>
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight text-balance">Cuéntanos tu proyecto.</h2>
-            <p className="text-base sm:text-xl text-white/50 font-light max-w-2xl mx-auto">
+            <p className="text-base sm:text-xl text-white/50 font-light max-w-2xl mx-auto text-justify">
               Si tienes una idea y quieres saber qué puede hacer la IA por ella, escríbenos. Sin compromisos.
             </p>
           </div>
@@ -419,7 +419,7 @@ export default function App() {
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_subject" value="Nuevo mensaje en Hitster Ai" />
-            <input type="hidden" name="_next" value="https://hitster.page" />
+            <input type="hidden" name="_next" value="https://ferbaez.github.io/hitster-ai/" />
 
             {[
               { id: "name", label: "Nombre", type: "text", placeholder: "Tu nombre" },
