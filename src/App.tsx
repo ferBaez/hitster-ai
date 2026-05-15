@@ -501,7 +501,7 @@ export default function App() {
                 <XIcon size={20} />
               </button>
 
-              <div className="prose prose-invert max-w-none text-white/70 font-light text-sm md:text-base pr-4">
+              <div className="prose prose-invert max-w-none text-white/70 font-light text-sm md:text-base pr-4 text-justify">
                 <h2 className="text-2xl font-medium text-white mb-6">Aviso de Privacidad — Hitster Media</h2>
                 <p className="mb-4"><strong>Última actualización:</strong> 23 de junio de 2025</p>
                 <p className="mb-6">Tu privacidad es importante para nosotros. Este aviso explica qué datos recopilamos, para qué los usamos y cómo los protegemos cuando visitas nuestro sitio o contratas nuestros servicios.</p>
