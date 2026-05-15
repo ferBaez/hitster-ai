@@ -42,6 +42,36 @@ export default function App() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus('loading');
+    
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/baez@hitster.page", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      
+      if (response.ok) {
+        setFormStatus('success');
+        (e.target as HTMLFormElement).reset();
+        setTimeout(() => setFormStatus('idle'), 5000);
+      } else {
+        setFormStatus('error');
+      }
+    } catch (error) {
+      setFormStatus('error');
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -447,15 +477,13 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            action="https://formsubmit.co/baez@hitster.page"
-            method="POST"
+            onSubmit={handleContactSubmit}
             className="flex flex-col gap-4 md:gap-6 w-full max-w-xl mx-auto text-left"
           >
             <input type="text" name="_honey" style={{ display: "none" }} />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_subject" value="Nuevo mensaje en Hitster Ai" />
-            <input type="hidden" name="_next" value="https://ferbaez.github.io/hitster-ai/" />
 
             {[
               { id: "name", label: "Nombre", type: "text", placeholder: "Tu nombre" },
@@ -468,7 +496,8 @@ export default function App() {
                   name={id}
                   id={id}
                   required
-                  className="bg-white/5 border border-white/10 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-white text-base focus:outline-none focus:border-[#F27D26] focus:bg-white/10 transition-all font-light placeholder:text-white/20"
+                  disabled={formStatus === 'loading' || formStatus === 'success'}
+                  className="bg-white/5 border border-white/10 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-white text-base focus:outline-none focus:border-[#F27D26] focus:bg-white/10 transition-all font-light placeholder:text-white/20 disabled:opacity-50"
                   placeholder={placeholder}
                 />
               </div>
@@ -480,20 +509,53 @@ export default function App() {
                 name="message"
                 id="message"
                 required
+                disabled={formStatus === 'loading' || formStatus === 'success'}
                 rows={5}
-                className="bg-white/5 border border-white/10 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-white text-base focus:outline-none focus:border-[#F27D26] focus:bg-white/10 transition-all resize-none font-light placeholder:text-white/20"
+                className="bg-white/5 border border-white/10 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-white text-base focus:outline-none focus:border-[#F27D26] focus:bg-white/10 transition-all resize-none font-light placeholder:text-white/20 disabled:opacity-50"
                 placeholder="¿De qué trata tu proyecto?"
               />
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              type="submit"
-              className="w-full flex items-center justify-center gap-3 bg-white text-black px-6 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl font-bold text-base md:text-lg hover:bg-[#F27D26] hover:text-white transition-all shadow-xl mt-2 md:mt-4 cursor-pointer"
-            >
-              Enviar mensaje
-            </motion.button>
+            <div className="mt-2 md:mt-4">
+              <AnimatePresence mode="wait">
+                {formStatus === 'success' ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="w-full bg-green-500/10 border border-green-500/50 text-green-400 p-4 rounded-xl md:rounded-2xl text-center font-medium"
+                  >
+                    ¡Mensaje enviado con éxito! Te contactaremos pronto.
+                  </motion.div>
+                ) : formStatus === 'error' ? (
+                  <div key="error" className="flex flex-col gap-3">
+                    <div className="w-full bg-red-500/10 border border-red-500/50 text-red-400 p-4 rounded-xl md:rounded-2xl text-center font-medium">
+                      Hubo un error al enviar. Por favor, intenta de nuevo o escribe a baez@hitster.page
+                    </div>
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      type="button"
+                      onClick={() => setFormStatus('idle')}
+                      className="w-full bg-white/10 text-white px-6 py-3 rounded-xl font-bold cursor-pointer"
+                    >
+                      Reintentar
+                    </motion.button>
+                  </div>
+                ) : (
+                  <motion.button
+                    key="submit"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    disabled={formStatus === 'loading'}
+                    type="submit"
+                    className="w-full flex items-center justify-center gap-3 bg-white text-black px-6 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl font-bold text-base md:text-lg hover:bg-[#F27D26] hover:text-white transition-all shadow-xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {formStatus === 'loading' ? 'Enviando...' : 'Enviar mensaje'}
+                  </motion.button>
+                )}
+              </AnimatePresence>
+            </div>
           </motion.form>
         </div>
       </section>
