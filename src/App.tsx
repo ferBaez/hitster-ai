@@ -33,6 +33,16 @@ const VIDEOS = [
     title: "Identidad de Marca en Movimiento",
     desc: "Branding audiovisual con personajes y mundos construidos desde cero usando inteligencia artificial.",
   },
+  {
+    id: "HXSPFpSB8Nk",
+    title: "Dirección de Arte Digital",
+    desc: "Exploración de texturas y atmósferas hiperrealistas creadas con algoritmos de difusión de vanguardia.",
+  },
+  {
+    id: "89pMNvMGz2A",
+    title: "Experiencia Inmersiva",
+    desc: "Visuales de gran impacto diseñados para espacios físicos y pantallas de formato masivo (OOH).",
+  },
 ];
 
 export default function App() {
