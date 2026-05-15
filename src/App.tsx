@@ -125,7 +125,7 @@ export default function App() {
 
         <div className="relative z-10 max-w-5xl mt-20">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-            <h1 className="text-5xl sm:text-6xl md:text-8xl font-medium tracking-tighter mb-6 leading-[0.9]">Hitster Ai</h1>
+            <h2 className="text-5xl sm:text-6xl md:text-8xl font-medium tracking-tighter mb-6 leading-[0.9]">Hitster Ai</h2>
             <p className="text-base sm:text-xl md:text-2xl font-light text-white/75 max-w-3xl mx-auto leading-relaxed text-balance px-2 text-justify">
               Producimos contenido audiovisual con inteligencia artificial. Del concepto a la pantalla, sin los tiempos ni los costos de una producción tradicional.
             </p>
@@ -142,6 +142,32 @@ export default function App() {
           <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-bold">Explorar</span>
         </motion.div>
       </header>
+
+      {/* Selling Point Section */}
+      <section className="py-24 md:py-44 px-6 bg-gradient-to-b from-black to-[#0a0a0a] border-b border-white/5">
+        <div className="max-w-4xl mx-auto text-center space-y-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
+          >
+            <span className="text-[11px] uppercase tracking-[0.5em] text-[#F27D26] font-bold">Dirección Creativa + IA</span>
+            <h1 className="text-4xl md:text-8xl font-medium tracking-tight leading-[0.9] text-balance">
+              La creatividad no ha muerto. <br className="hidden md:block" /> <span className="text-white/40 italic">Ha evolucionado.</span>
+            </h1>
+            <div className="space-y-6 text-lg md:text-2xl text-white/60 font-light leading-relaxed max-w-3xl mx-auto">
+              <p className="text-justify">
+                En la producción tradicional, el tiempo es el enemigo. En **Hitster Ai**, el tiempo es nuestra ventaja competitiva. No somos una herramienta; somos un estudio de dirección creativa que utiliza los modelos generativos más avanzados del mundo para materializar visiones que antes eran técnicamente imposibles.
+              </p>
+              <p className="text-justify">
+                Desde campañas fotorrealistas de alta resolución para gran formato hasta piezas audiovisuales que desafían las leyes de la física. Reducimos meses de trabajo a días y presupuestos prohibitivos a inversiones estratégicas de alto impacto. **No solo generamos contenido; dirigimos el futuro de la publicidad.**
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Reel Section */}
       <section id="reel" className="py-16 md:py-40 px-4 sm:px-6 border-b border-white/5">
@@ -314,12 +340,22 @@ export default function App() {
             <p className="text-white/40 text-sm font-light max-w-md">
               ¿Quieres ver cómo quedaría tu marca en este formato? Cuéntanos el proyecto y hacemos una prueba de concepto.
             </p>
-            <a
-              href="#contact"
-              className="flex items-center gap-2 bg-white text-black px-8 py-4 rounded-2xl font-bold text-sm hover:bg-[#F27D26] hover:text-white transition-all shadow-xl whitespace-nowrap"
-            >
-              Solicitar propuesta <ArrowUpRight size={16} />
-            </a>
+            <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-4">
+              <a
+                href="https://drive.google.com/file/d/1yZ2zVLUYRfE_lgCx2Kd76JbRCmY2LXES/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-64 flex items-center justify-center gap-2 bg-white/5 border border-white/10 text-white px-8 py-4 rounded-2xl font-bold text-sm hover:bg-white/10 transition-all shadow-xl"
+              >
+                Portafolios <ArrowUpRight size={16} />
+              </a>
+              <a
+                href="#contact"
+                className="w-full sm:w-64 flex items-center justify-center gap-2 bg-white text-black px-8 py-4 rounded-2xl font-bold text-sm hover:bg-[#F27D26] hover:text-white transition-all shadow-xl"
+              >
+                Solicitar propuesta <ArrowUpRight size={16} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
