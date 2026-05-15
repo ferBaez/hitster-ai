@@ -3,18 +3,18 @@ import { ArrowUpRight, Menu, X, X as XIcon, ChevronLeft, ChevronRight, ZoomIn } 
 import { useState, useEffect, useCallback } from "react";
 
 const AI_IMAGES = [
-  { src: "/images/ai/01.jpg", alt: "Retrato beauty — generado con IA para gran formato" },
-  { src: "/images/ai/02.jpg", alt: "Campaña beauty — imagen publicitaria generativa" },
-  { src: "/images/ai/03.jpg", alt: "Bronco — visualización de producto con IA" },
-  { src: "/images/ai/04.jpg", alt: "Catrina — arte conceptual AI para publicidad OOH" },
-  { src: "/images/ai/05.jpg", alt: "Coca-Cola — campaña visual generada con inteligencia artificial" },
-  { src: "/images/ai/06.jpg", alt: "Hombre y TV — composición surrealista AI" },
-  { src: "/images/ai/07.jpg", alt: "Pilsen — imagen de marca generada con IA" },
-  { src: "/images/ai/08.jpg", alt: "Pilsen — variante de campaña AI" },
-  { src: "/images/ai/09.jpg", alt: "Stefano — retrato fotorrealista generativo" },
-  { src: "/images/ai/10.jpg", alt: "Tesla — visualización de producto AI para OOH" },
-  { src: "/images/ai/11.jpg", alt: "Cooper — transformación visual generada con IA" },
-  { src: "/images/ai/12.jpg", alt: "Desierto — composición de paisaje AI para gran formato" },
+  { src: "images/ai/01.jpg", alt: "Retrato beauty — generado con IA para gran formato" },
+  { src: "images/ai/02.jpg", alt: "Campaña beauty — imagen publicitaria generativa" },
+  { src: "images/ai/03.jpg", alt: "Bronco — visualización de producto con IA" },
+  { src: "images/ai/04.jpg", alt: "Catrina — arte conceptual AI para publicidad OOH" },
+  { src: "images/ai/05.jpg", alt: "Coca-Cola — campaña visual generada con inteligencia artificial" },
+  { src: "images/ai/06.jpg", alt: "Hombre y TV — composición surrealista AI" },
+  { src: "images/ai/07.jpg", alt: "Pilsen — imagen de marca generada con IA" },
+  { src: "images/ai/08.jpg", alt: "Pilsen — variante de campaña AI" },
+  { src: "images/ai/09.jpg", alt: "Stefano — retrato fotorrealista generativo" },
+  { src: "images/ai/10.jpg", alt: "Tesla — visualización de producto AI para OOH" },
+  { src: "images/ai/11.jpg", alt: "Cooper — transformación visual generada con IA" },
+  { src: "images/ai/12.jpg", alt: "Desierto — composición de paisaje AI para gran formato" },
 ];
 
 const VIDEOS = [
@@ -126,7 +126,7 @@ export default function App() {
         <div className="relative z-10 max-w-5xl mt-20">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
             <h1 className="text-5xl sm:text-6xl md:text-8xl font-medium tracking-tighter mb-6 leading-[0.9]">Hitster Ai</h1>
-            <p className="text-base sm:text-xl md:text-2xl font-light text-white/75 max-w-3xl mx-auto leading-relaxed text-balance px-2">
+            <p className="text-base sm:text-xl md:text-2xl font-light text-white/75 max-w-3xl mx-auto leading-relaxed text-balance px-2 text-justify">
               Producimos contenido audiovisual con inteligencia artificial. Del concepto a la pantalla, sin los tiempos ni los costos de una producción tradicional.
             </p>
           </motion.div>
@@ -149,7 +149,7 @@ export default function App() {
           <div className="flex flex-col items-center text-center gap-4">
             <span className="text-[11px] uppercase tracking-[0.4em] text-[#F27D26] font-bold">Showreel</span>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-medium tracking-tight text-balance">Nuestro Reel.</h2>
-            <p className="text-lg text-white/55 font-light max-w-2xl mt-4">
+            <p className="text-lg text-white/55 font-light max-w-2xl mt-4 text-justify">
               Dirección creativa y herramientas de IA. Así es como producimos: rápido, con criterio y sin límites de imaginación.
             </p>
           </div>
@@ -264,7 +264,7 @@ export default function App() {
                 Publicidad que no necesita fotógrafo.
               </h2>
             </div>
-            <div className="space-y-5 text-white/60 font-light leading-relaxed">
+            <div className="space-y-5 text-white/60 font-light leading-relaxed text-justify">
               <p>
                 Generamos imágenes de alta resolución listas para impresión: espectaculares, muros, vallas, lonas y cualquier soporte OOH. Sin sesión de fotos, sin locaciones, sin semanas de espera.
               </p>
