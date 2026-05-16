@@ -113,7 +113,6 @@ export default function App() {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${scrolled ? "bg-black/80 backdrop-blur-md border-white/10 py-4" : "bg-transparent border-transparent py-6"}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex flex-col z-50 relative">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-[#F27D26] font-bold">hitster media presenta</span>
             <span className="text-xl font-medium tracking-tight">Hitster Ai</span>
           </motion.div>
 
@@ -166,9 +165,6 @@ export default function App() {
         <div className="relative z-10 max-w-5xl mt-20">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
             <h2 className="text-5xl sm:text-6xl md:text-8xl font-medium tracking-tighter mb-6 leading-[0.9]">Hitster Ai</h2>
-            <p className="text-base sm:text-xl md:text-2xl font-light text-white/75 max-w-3xl mx-auto leading-relaxed text-balance px-2 text-justify">
-              Producimos contenido audiovisual con inteligencia artificial. Del concepto a la pantalla, sin los tiempos ni los costos de una producción tradicional.
-            </p>
           </motion.div>
         </div>
 
@@ -211,7 +207,7 @@ export default function App() {
 
       {/* Reel Section */}
       <section id="reel" className="py-16 md:py-40 px-4 sm:px-6 border-b border-white/5">
-        <div className="max-w-6xl mx-auto space-y-10 md:space-y-16">
+        <div className="max-w-6xl mx-auto space-y-16 md:space-y-24">
           <div className="flex flex-col items-center text-center gap-4">
             <span className="text-[11px] uppercase tracking-[0.4em] text-[#F27D26] font-bold">Showreel</span>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-medium tracking-tight text-balance">Nuestro Reel.</h2>
@@ -224,7 +220,7 @@ export default function App() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl w-full max-w-5xl mx-auto border border-white/10"
+            className="relative aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl w-full border border-white/10"
           >
             <iframe
               src="https://www.youtube.com/embed/89zSJEtPxbY?rel=0&modestbranding=1"
